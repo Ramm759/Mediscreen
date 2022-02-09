@@ -1,19 +1,17 @@
 package com.mycompany.patients.controller;
 
-import com.mycompany.patients.entity.BidList;
 import com.mycompany.patients.entity.Patient;
 import com.mycompany.patients.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.sql.Timestamp;
-import java.util.Optional;
 
 @Controller
 public class PatientController {
@@ -39,7 +37,7 @@ public class PatientController {
     @PostMapping("/patient/validate") // Appelé après Post sur le formulaire de saisie
     public String validate(@Valid Patient patient, BindingResult result, Model model) {
         // BindingResult regroupe les erreurs
-        if (!result.hasErrors()){
+        if (!result.hasErrors()) {
             patientRepository.save(patient);
             model.addAttribute("patient", patientRepository.findAll());
             return "redirect:/patient/list";
@@ -47,53 +45,32 @@ public class PatientController {
         return "patient/add";
     }
 
+    @GetMapping("/patient/update/{id}")
+    public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
+        // Si non trouvé (Java 11)
+        Patient patient = patientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid patient Id:" + id));
+        model.addAttribute("patient", patient);
+        return "patient/update";
+    }
 
-
-    /*@PostMapping(value = "/patients")
-    public ResponseEntity addPatient(@RequestBody @Valid Patient patient) {
-        String firstnameToSearch = patient.getFirstname();
-        String lastnameToSearch = patient.getLastname();
-        Optional<Patient> patientAlreadyExists = patientRepository.findByFirstnameEqualsIgnoreCaseAndLastnameEqualsIgnoreCase(firstnameToSearch, lastnameToSearch);
-
-        if (patientAlreadyExists.isPresent()) {
-            return new ResponseEntity("Patient déjà existant", HttpStatus.BAD_REQUEST);
+    @PostMapping("/patient/update/{id}")
+    public String updatePatient(@PathVariable("id") Integer id, @Valid Patient patient,
+                                BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "patient/update";
         }
 
         patientRepository.save(patient);
-        return new ResponseEntity(patient, HttpStatus.CREATED);
-    }*/
+        model.addAttribute("patient", patientRepository.findAll());
 
-    @DeleteMapping(value = "/patient/{patientId}")
-    public ResponseEntity deletePatient(@PathVariable("patientId") Integer patientId) {
-        Optional<Patient> patientToDelete = patientRepository.findById(patientId);
-
-        if (!patientToDelete.isPresent()) {
-            return new ResponseEntity("Patient non trouvé", HttpStatus.BAD_REQUEST);
-        }
-
-        patientRepository.delete(patientToDelete.get());
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
+        return "redirect:/patient/list";
     }
 
-    @PutMapping(value = "/patient/{patientId}")
-    public ResponseEntity updatePatient(@PathVariable("patientId") Integer patientId, @RequestBody @Valid Patient patient) {
-
-        Optional<Patient> patientAlreadyExists = patientRepository.findById(patientId);
-        if (!patientAlreadyExists.isPresent()) {
-            return new ResponseEntity("Patient inexistant", HttpStatus.BAD_REQUEST);
-        }
-
-        Patient patientToUpdate = patientAlreadyExists.get();
-
-        patientToUpdate.setFirstname(patient.getFirstname());
-        patientToUpdate.setLastname(patient.getLastname());
-        patientToUpdate.setDateOfBirth(patient.getDateOfBirth());
-        patientToUpdate.setGenre(patient.getGenre());
-        patientToUpdate.setAdress(patient.getAdress());
-        patientToUpdate.setAdressCity(patient.getAdressCity());
-        patientToUpdate.setAdressCp(patient.getAdressCp());
-
-        patientRepository.save(patientToUpdate);
-        return new ResponseEntity(patientToUpdate, HttpStatus.CREATED);
+    @GetMapping("/patient/delete/{id}")
+    public String deleteBid(@PathVariable("id") Integer id, Model model) {
+        Patient patient = patientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid patient Id:" + id));
+        patientRepository.delete(patient);
+        model.addAttribute("patient", patientRepository.findAll());
+        return "redirect:/patient/list";
     }
 }
