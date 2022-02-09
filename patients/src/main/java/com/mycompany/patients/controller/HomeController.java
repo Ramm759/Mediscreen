@@ -13,6 +13,12 @@ public class HomeController
 		return "home";
 	}
 
+	@RequestMapping("/patient/")
+	public String homePatient(Model model)
+	{
+		return "home";
+	}
+
 	@RequestMapping("/admin/home")
 	public String adminHome(Model model)
 	{

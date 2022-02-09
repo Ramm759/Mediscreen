@@ -20,7 +20,7 @@ public class PatientController {
 
     @GetMapping("/Accueil")
     public String index() {
-        return "Greetings from Mediscreen-Patients !";
+        return "Bienvenue sur Mediscreen-Patients !";
     }
 
     @RequestMapping("/patient/list")
@@ -53,7 +53,7 @@ public class PatientController {
         return "patient/update";
     }
 
-    @PostMapping("/patient/update/{id}")
+    @PostMapping("/patient/update/{id}") // Appelé après Post sur le formulaire de saisie
     public String updatePatient(@PathVariable("id") Integer id, @Valid Patient patient,
                                 BindingResult result, Model model) {
         if (result.hasErrors()) {
