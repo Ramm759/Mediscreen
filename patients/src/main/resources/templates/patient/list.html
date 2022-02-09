@@ -10,7 +10,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-6">
-			<a href="/bidList/list">Bid List</a>&nbsp;|&nbsp;
+			<a href="/patient/list">Liste des patients</a>&nbsp;|&nbsp;
 			<a href="/curvePoint/list">Curve Points</a>&nbsp;|&nbsp;
 			<a href="/rating/list">Ratings</a>&nbsp;|&nbsp;
 			<a href="/trade/list">Trade</a>&nbsp;|&nbsp;
@@ -23,29 +23,30 @@
 			</form>
 		</div>
 	</div>
-	<div class="row"><h2>Bid List</h2></div>
+	<div class="row"><h2>Liste des patients</h2></div>
 	<div class="row">
-		<a href="/bidList/add" class="btn btn-primary btn-sm">Add New</a>
+		<a href="/patient/add" class="btn btn-primary btn-sm">Ajouter</a>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Account</th>
-					<th>Type</th>
-					<th>Bid Quantity</th>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Date de naissance</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
+
 				<!-- TODO: Show all Bids to the table, the Action column will have Edit & Delete buttons -->
-				<tr th:each="bid : ${bidList}">
-					<td style="width: 10%" th:text="${bid.bidListId}"></td>
-					<td th:text="${bid.account}"></td>
-					<td th:text="${bid.type}"></td>
-					<td style="width: 25%" th:text="${bid.bidQuantity}"></td>
+				<tr th:each="patient : ${patients}">
+					<td style="width: 10%" th:text="${patient.id}"></td>
+					<td th:text="${patient.lastname}"></td>
+					<td th:text="${patient.firstname}"></td>
+					<td th:text="${patient.dateOfBirth}"></td>
 					<td style="width: 15%" class="text-center">
-						<a th:href="@{/bidList/update/{id}(id=${bid.bidListId})}">Edit</a>&nbsp;|&nbsp;
-						<a th:href="@{/bidList/delete/{id}(id=${bid.bidListId})}">Delete</a>
+						<a th:href="@{/patient/update/{id}(id=${patient.id})}">Edit</a>&nbsp;|&nbsp;
+						<a th:href="@{/patient/delete/{id}(id=${patient.id})}">Delete</a>
 					</td>
 				</tr>
 
