@@ -1,16 +1,21 @@
 package com.mycompany.patients.controller;
 
+import com.mycompany.patients.entity.BidList;
 import com.mycompany.patients.entity.Patient;
 import com.mycompany.patients.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.Timestamp;
 import java.util.Optional;
 
-@RestController
+@Controller
 public class PatientController {
     @Autowired
     private PatientRepository patientRepository;
@@ -20,13 +25,31 @@ public class PatientController {
         return "Greetings from Mediscreen-Patients !";
     }
 
-    @GetMapping(value = "/patients")
-    public ResponseEntity listPatients() {
-        Iterable<Patient> patients = patientRepository.findAll();
-        return new ResponseEntity(patients, HttpStatus.OK);
+    @RequestMapping("/patient/list")
+    public String home(Model model) {
+        model.addAttribute("patients", patientRepository.findAll()); // patient : nom dans la page html
+        return "patient/list";
     }
 
-    @PostMapping(value = "/patients")
+    @GetMapping("/patient/add")
+    public String addPatientForm(Patient patient) {
+        return "patient/add";
+    }
+
+    @PostMapping("/patient/validate") // Appelé après Post sur le formulaire de saisie
+    public String validate(@Valid Patient patient, BindingResult result, Model model) {
+        // BindingResult regroupe les erreurs
+        if (!result.hasErrors()){
+            patientRepository.save(patient);
+            model.addAttribute("patient", patientRepository.findAll());
+            return "redirect:/patient/list";
+        }
+        return "patient/add";
+    }
+
+
+
+    /*@PostMapping(value = "/patients")
     public ResponseEntity addPatient(@RequestBody @Valid Patient patient) {
         String firstnameToSearch = patient.getFirstname();
         String lastnameToSearch = patient.getLastname();
@@ -38,7 +61,7 @@ public class PatientController {
 
         patientRepository.save(patient);
         return new ResponseEntity(patient, HttpStatus.CREATED);
-    }
+    }*/
 
     @DeleteMapping(value = "/patient/{patientId}")
     public ResponseEntity deletePatient(@PathVariable("patientId") Integer patientId) {
