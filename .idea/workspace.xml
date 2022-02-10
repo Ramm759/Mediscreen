@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a660e5c4-2967-4923-b9d2-851a5413508f" name="Changes" comment="" />
+    <list default="true" id="9ee0e473-d7a7-4d86-a040-4af9ef34878f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/patients/src/main/resources/templates/patient/patientAlreadyExist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patients/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/patients/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patients/src/main/java/com/mycompany/patients/PatientsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/patients/src/main/java/com/mycompany/patients/PatientsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patients/src/main/java/com/mycompany/patients/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/patients/src/main/java/com/mycompany/patients/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patients/src/main/java/com/mycompany/patients/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/patients/src/main/java/com/mycompany/patients/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patients/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patients/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,33 +33,32 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
-  <component name="ProjectId" id="24ssjDlHXIOTyRswtGDFgkUjepS" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="24vT4Ley20YUmcW1zH6FmVQeFY8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/patients" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.30229884" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
-  <component name="RunManager" selected="Application.PatientsApplication">
-    <configuration name="PatientsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.mycompany.patients.PatientsApplication" />
+  <component name="RunManager">
+    <configuration name="PatientsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="patients" />
       <extension name="coverage">
         <pattern>
@@ -55,12 +66,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PatientsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="patients" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.mycompany.patients.PatientsApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -68,37 +73,25 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PatientsApplication" />
+        <item itemvalue="Spring Boot.PatientsApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a660e5c4-2967-4923-b9d2-851a5413508f" name="Changes" comment="" />
-      <created>1644430766345</created>
+      <changelist id="9ee0e473-d7a7-4d86-a040-4af9ef34878f" name="Changes" comment="" />
+      <created>1644509868376</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1644430766345</updated>
-      <workItem from="1644430769631" duration="1134000" />
+      <updated>1644509868376</updated>
+      <workItem from="1644509871480" duration="1613000" />
+      <workItem from="1644511808669" duration="57000" />
+      <workItem from="1644511880253" duration="499000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

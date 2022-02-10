@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-212.4746.92">
+    <data-source name="mediscreen_patients@localhost" uuid="9d3c52d1-cff9-495a-bc97-d5fb91957d64">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>mediscreen</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>

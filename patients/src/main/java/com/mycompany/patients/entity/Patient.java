@@ -19,7 +19,7 @@ public class Patient {
     private String lastname;
 
     //@NotEmpty(message = "Le champ ne peut être vide.")
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     //@NotEmpty(message = "Le champ ne peut être vide.")
     private Character genre;
@@ -36,26 +36,12 @@ public class Patient {
     @NotEmpty(message = "Le champ ne peut être vide.")
     private String telephone;
 
-    public Patient() {
-    }
-
-    public Patient(String firstname, String lastname, Date dateOfBirth, Character genre, String adress, String adressCp, String adressCity, String telephone) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.dateOfBirth = dateOfBirth;
-        this.genre = genre;
-        this.adress = adress;
-        this.adressCp = adressCp;
-        this.adressCity = adressCity;
-        this.telephone = telephone;
+    public String getFirstname() {
+        return firstname;
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public String getFirstname() {
-        return firstname;
     }
 
     public void setFirstname(String firstname) {
@@ -70,11 +56,11 @@ public class Patient {
         this.lastname = lastname;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -115,6 +101,20 @@ public class Patient {
     }
 
     public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public Patient() {
+    }
+
+    public Patient(String firstname, String lastname, String dateOfBirth, Character genre, String adress, String adressCp, String adressCity, String telephone) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.dateOfBirth = dateOfBirth;
+        this.genre = genre;
+        this.adress = adress;
+        this.adressCp = adressCp;
+        this.adressCity = adressCity;
         this.telephone = telephone;
     }
 }
