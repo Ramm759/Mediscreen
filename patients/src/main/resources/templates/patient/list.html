@@ -11,10 +11,8 @@
 	<div class="row">
 		<div class="col-6">
 			<a href="/patient/list">Liste des patients</a>&nbsp;|&nbsp;
-			<a href="/curvePoint/list">Curve Points</a>&nbsp;|&nbsp;
-			<a href="/rating/list">Ratings</a>&nbsp;|&nbsp;
-			<a href="/trade/list">Trade</a>&nbsp;|&nbsp;
-			<a href="/ruleName/list">Rule</a>
+			<!-- <a href="/curvePoint/list">Curve Points</a>&nbsp;|&nbsp;-->
+
 		</div>
 		<div class="col-6 text-right">
 			Logged in user: <b th:inline="text"  class="user"> [[${#httpServletRequest.remoteUser}]] </b>
@@ -33,6 +31,7 @@
 					<th>Nom</th>
 					<th>Prénom</th>
 					<th>Date de naissance</th>
+					<th>Téléphone</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -44,6 +43,7 @@
 					<td th:text="${patient.lastname}"></td>
 					<td th:text="${patient.firstname}"></td>
 					<td th:text="${patient.dateOfBirth}"></td>
+					<td th:text="${patient.telephone}"></td>
 					<td style="width: 15%" class="text-center">
 						<a th:href="@{/patient/update/{id}(id=${patient.id})}">Edit</a>&nbsp;|&nbsp;
 						<a th:href="@{/patient/delete/{id}(id=${patient.id})}">Delete</a>

@@ -33,10 +33,13 @@ public class Patient {
     @NotEmpty(message = "Le champ ne peut être vide.")
     private String adressCity;
 
+    @NotEmpty(message = "Le champ ne peut être vide.")
+    private String telephone;
+
     public Patient() {
     }
 
-    public Patient(String firstname, String lastname, Date dateOfBirth, Character genre, String adress, String adressCp, String adressCity) {
+    public Patient(String firstname, String lastname, Date dateOfBirth, Character genre, String adress, String adressCp, String adressCity, String telephone) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.dateOfBirth = dateOfBirth;
@@ -44,6 +47,7 @@ public class Patient {
         this.adress = adress;
         this.adressCp = adressCp;
         this.adressCity = adressCity;
+        this.telephone = telephone;
     }
 
     public Integer getId() {
@@ -104,5 +108,13 @@ public class Patient {
 
     public void setAdressCity(String adressCity) {
         this.adressCity = adressCity;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 }
